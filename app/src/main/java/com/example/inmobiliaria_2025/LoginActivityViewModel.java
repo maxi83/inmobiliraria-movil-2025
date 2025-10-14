@@ -27,28 +27,23 @@ public class LoginActivityViewModel extends AndroidViewModel {
         return mMensaje;
     }
 
-    public void login(String mail, String clave) {
+    public void login(String mail, String clave, Context context) {
         ApiClient.InmoService api = ApiClient.getInmoService();
-        Call<String> llamada = api.loginForm(mail, clave); // método que definiste en ApiClient
+        Call<String> llamada = api.loginForm(mail, clave);
 
         llamada.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                Context appContext = getApplication().getApplicationContext();
-
                 if (response.isSuccessful() && response.body() != null) {
                     String token = response.body();
+                    ApiClient.guardarToken(context, token);
 
-                    // Guardar token en SharedPreferences
-                    ApiClient.guardarToken(appContext, token);
-
-                    // Actualizar LiveData para notificar éxito
                     mMensaje.postValue("Bienvenido");
 
-                    // Abrir menú navegable
-                    Intent intent = new Intent(appContext, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    appContext.startActivity(intent);
+                    // Abrir MainActivity con menú navegable correctamente
+                    Intent intent = new Intent(context, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    context.startActivity(intent);
                 } else {
                     mMensaje.postValue("Usuario y/o contraseña incorrecta; reintente");
                 }

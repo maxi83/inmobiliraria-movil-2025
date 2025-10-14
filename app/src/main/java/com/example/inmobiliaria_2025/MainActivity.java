@@ -1,12 +1,14 @@
 package com.example.inmobiliaria_2025;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.widget.Toolbar;
+import com.example.inmobiliaria_2025.ui.inicio.InicioFragment;
+import com.example.inmobiliaria_2025.ui.perfil.PerfilFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,13 +27,38 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        // Esto muestra el icono de menu...
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
-
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_inicio) {
+                loadFragment(new InicioFragment(), "Inicio");
+            } else if (id == R.id.nav_perfil) {
+                loadFragment(new PerfilFragment(), "Perfil");
+            }
+
+            drawerLayout.closeDrawers();
+            return true;
+        });
+
+        if (savedInstanceState == null) {
+            loadFragment(new InicioFragment(), "Inicio");
+            navigationView.setCheckedItem(R.id.nav_inicio);
+        }
+    }
+
+    private void loadFragment(androidx.fragment.app.Fragment fragment, String title) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
     }
 }

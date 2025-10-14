@@ -1,5 +1,6 @@
 package com.example.inmobiliaria_2025;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,10 +24,8 @@ public class LoginActivity extends AppCompatActivity {
         etClave = findViewById(R.id.etClave);
         btIngresar = findViewById(R.id.btIngresar);
 
-        // Inicializar ViewModel
         loginViewModel = new ViewModelProvider(this).get(LoginActivityViewModel.class);
 
-        // Observar mensajes del login
         loginViewModel.getMensaje().observe(this, mensaje -> {
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
         });
@@ -40,8 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            // Llamar al ViewModel para hacer login con Retrofit
-            loginViewModel.login(email, clave);
+            loginViewModel.login(email, clave, this);
         });
     }
 }

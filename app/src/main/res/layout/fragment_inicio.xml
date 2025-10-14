@@ -3,12 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Texto simple para ver que el fragmento se carga -->
-    <TextView
-        android:layout_gravity="center"
-        android:text="Pantalla de Inicio"
-        android:textSize="24sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

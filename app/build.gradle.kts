@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.legacy.support.v4)
     implementation(libs.activity)
     implementation(libs.retrofit)
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation(libs.converter.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
