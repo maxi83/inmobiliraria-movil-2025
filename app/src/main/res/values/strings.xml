@@ -11,6 +11,9 @@
     <string name="navigation_drawer_open">Abrir menú</string>
     <string name="navigation_drawer_close">Cerrar menú</string>
 
+    <string name="direccion">Dirección</string>
+    <string name="tipo">Tipo</string>
+    <string name="precio">Precio</string>
 
     <!-- Strings que algunos layouts aún usan -->
     <string name="nav_header_title">Android Studio</string>
@@ -18,3 +21,4 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 </resources>
+

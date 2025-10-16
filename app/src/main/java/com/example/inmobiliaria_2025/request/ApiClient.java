@@ -3,9 +3,12 @@ package com.example.inmobiliaria_2025.request;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.inmobiliaria_2025.model.Inmueble;
 import com.example.inmobiliaria_2025.model.Propietario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -46,7 +49,8 @@ public class ApiClient {
 
             @PUT("api/Propietarios/actualizar")
             Call<Propietario> actualizarProp(@Header("Authorization") String token, @Body Propietario p);
-
+            @GET("api/Inmuebles")
+            Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
 
         }
 
