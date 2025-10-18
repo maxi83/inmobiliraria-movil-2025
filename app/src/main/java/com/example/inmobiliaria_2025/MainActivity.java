@@ -7,8 +7,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.widget.Toolbar;
+
 import com.example.inmobiliaria_2025.ui.inicio.InicioFragment;
 import com.example.inmobiliaria_2025.ui.perfil.PerfilFragment;
+import com.example.inmobiliaria_2025.ui.inmueble.InmueblesFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,12 +43,15 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(new InicioFragment(), "Inicio");
             } else if (id == R.id.nav_perfil) {
                 loadFragment(new PerfilFragment(), "Perfil");
+            } else if (id == R.id.nav_inmuebles) {
+                loadFragment(new InmueblesFragment(), "Inmuebles");
             }
 
             drawerLayout.closeDrawers();
             return true;
         });
 
+        // Cargar fragment inicial
         if (savedInstanceState == null) {
             loadFragment(new InicioFragment(), "Inicio");
             navigationView.setCheckedItem(R.id.nav_inicio);
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);
         ft.commit();
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(title);
         }

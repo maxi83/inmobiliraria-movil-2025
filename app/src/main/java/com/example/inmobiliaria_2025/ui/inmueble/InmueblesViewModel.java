@@ -18,27 +18,23 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class InmueblesViewModel extends AndroidViewModel {
-    private final MutableLiveData<String> mText = new MutableLiveData<>();
-    private final MutableLiveData<List<Inmueble>> mInmueble = new MutableLiveData<>();
+
+    private final MutableLiveData<List<Inmueble>> inmueblesLiveData = new MutableLiveData<>();
 
     public InmueblesViewModel(@NonNull Application application) {
         super(application);
         leerInmuebles();
     }
 
-    public LiveData<String> getmText() {
-        return mText;
+    public LiveData<List<Inmueble>> getInmueblesLiveData() {
+        return inmueblesLiveData;
     }
 
-    public LiveData<List<Inmueble>> getmInmueble() {
-        return mInmueble;
+    public void obtenerInmuebles() {
+        leerInmuebles();
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
-
-    public void leerInmuebles() {
+    private void leerInmuebles() {
         String token = ApiClient.leerToken(getApplication());
         ApiClient.InmoService api = ApiClient.getInmoService();
         Call<List<Inmueble>> llamada = api.obtenerInmuebles("Bearer " + token);
@@ -47,7 +43,7 @@ public class InmueblesViewModel extends AndroidViewModel {
             @Override
             public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
                 if (response.isSuccessful()) {
-                    mInmueble.postValue(response.body());
+                    inmueblesLiveData.postValue(response.body());
                 } else {
                     Toast.makeText(getApplication(), "No hay inmuebles disponibles: " + response.message(), Toast.LENGTH_SHORT).show();
                 }

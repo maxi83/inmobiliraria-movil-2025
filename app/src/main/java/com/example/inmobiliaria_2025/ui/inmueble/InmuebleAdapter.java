@@ -14,15 +14,16 @@ import com.bumptech.glide.Glide;
 import com.example.inmobiliaria_2025.R;
 import com.example.inmobiliaria_2025.model.Inmueble;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.InmuebleViewHolder> {
 
-    private List<Inmueble> lista;
+    private List<Inmueble> lista = new ArrayList<>();
     private Context context;
 
-    public InmuebleAdapter(List<Inmueble> lista, Context context) {
-        this.lista = lista;
+    // Constructor ahora solo recibe Context
+    public InmuebleAdapter(Context context) {
         this.context = context;
     }
 
@@ -52,6 +53,13 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
     @Override
     public int getItemCount() {
         return lista.size();
+    }
+
+    // Método para actualizar la lista desde el Fragment / ViewModel
+    public void setInmuebles(List<Inmueble> inmuebles) {
+        lista.clear();
+        lista.addAll(inmuebles);
+        notifyDataSetChanged();
     }
 
     public class InmuebleViewHolder extends RecyclerView.ViewHolder {
