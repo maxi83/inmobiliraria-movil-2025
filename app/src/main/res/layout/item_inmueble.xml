@@ -14,15 +14,13 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <!-- Imagen del inmueble -->
         <ImageView
             android:id="@+id/imgInmueble"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:contentDescription="Imagen del inmueble"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:contentDescription="Imagen del inmueble" />
 
-        <!-- Dirección -->
         <TextView
             android:id="@+id/tvDireccion"
             android:layout_width="match_parent"
@@ -33,7 +31,6 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Tipo de inmueble -->
         <TextView
             android:id="@+id/tvTipo"
             android:layout_width="match_parent"
@@ -43,7 +40,6 @@
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp" />
 
-        <!-- Precio -->
         <TextView
             android:id="@+id/tvPrecio"
             android:layout_width="match_parent"

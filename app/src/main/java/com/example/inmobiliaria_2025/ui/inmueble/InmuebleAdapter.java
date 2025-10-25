@@ -8,23 +8,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.inmobiliaria_2025.R;
 import com.example.inmobiliaria_2025.model.Inmueble;
+import com.example.inmobiliaria_2025.request.ApiClient;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.InmuebleViewHolder> {
-
-    private List<Inmueble> lista = new ArrayList<>();
+    private List<Inmueble> lista;
     private Context context;
+    private OnInmuebleClickListener listener; // Listener para clicks
 
-    // Constructor ahora solo recibe Context
-    public InmuebleAdapter(Context context) {
+    // Interfaz para comunicar click al Fragment
+    public interface OnInmuebleClickListener {
+        void onInmuebleClick(Inmueble inmueble);
+    }
+
+    public InmuebleAdapter(List<Inmueble> lista, Context context, OnInmuebleClickListener listener) {
+        this.lista = lista;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -36,18 +43,19 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
 
     @Override
     public void onBindViewHolder(@NonNull InmuebleViewHolder holder, int position) {
-        String urlBase = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net";
         Inmueble i = lista.get(position);
-
         holder.tvDireccion.setText(i.getDireccion());
         holder.tvTipo.setText(i.getTipo());
-        holder.tvPrecio.setText("$" + i.getValor());
+        holder.tvPrecio.setText(String.valueOf(i.getValor()));
 
         Glide.with(context)
-                .load(urlBase + i.getImagen())
+                .load(ApiClient.BASE_URL + i.getImagen())
                 .placeholder(R.drawable.ic_launcher_foreground)
-                .error(R.drawable.ic_launcher_foreground)
+                .error("null")
                 .into(holder.imgInmueble);
+
+        // Click en el card llama al listener
+        holder.cardView.setOnClickListener(v -> listener.onInmuebleClick(i));
     }
 
     @Override
@@ -55,16 +63,10 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
         return lista.size();
     }
 
-    // Método para actualizar la lista desde el Fragment / ViewModel
-    public void setInmuebles(List<Inmueble> inmuebles) {
-        lista.clear();
-        lista.addAll(inmuebles);
-        notifyDataSetChanged();
-    }
-
     public class InmuebleViewHolder extends RecyclerView.ViewHolder {
         private TextView tvDireccion, tvTipo, tvPrecio;
         private ImageView imgInmueble;
+        private CardView cardView;
 
         public InmuebleViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +74,7 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
             tvTipo = itemView.findViewById(R.id.tvTipo);
             tvPrecio = itemView.findViewById(R.id.tvPrecio);
             imgInmueble = itemView.findViewById(R.id.imgInmueble);
+            cardView = itemView.findViewById(R.id.idCard);
         }
     }
 }

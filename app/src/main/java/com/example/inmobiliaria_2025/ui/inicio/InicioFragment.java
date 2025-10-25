@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.util.Log;
 
 import com.example.inmobiliaria_2025.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,20 +19,23 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class InicioFragment extends Fragment implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Log.d("InicioFragment", "onCreateView ejecutado");
+
+        // Inflamos el layout mínimo
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
-        // Obtenemos el SupportMapFragment dentro de nuestro fragment
+        // Buscamos el SupportMapFragment dentro del layout
         SupportMapFragment mapFragment = (SupportMapFragment)
                 getChildFragmentManager().findFragmentById(R.id.map);
 
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
+        } else {
+            Log.e("InicioFragment", "mapFragment es null");
         }
 
         return view;
@@ -39,13 +43,9 @@ public class InicioFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        // Coordenadas de la ULP
+        // Mostramos la ULP
         LatLng ulp = new LatLng(-33.3020, -66.3383);
-        mMap.addMarker(new MarkerOptions().position(ulp).title("Universidad de La Punta"));
-
-        // Centrar la cámara en la ULP con zoom 15
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ulp, 15));
+        googleMap.addMarker(new MarkerOptions().position(ulp).title("Universidad de La Punta"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ulp, 15));
     }
 }

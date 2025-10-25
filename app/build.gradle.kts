@@ -35,6 +35,7 @@ android {
     android {
         buildFeatures {
             viewBinding= true
+            dataBinding = true
         }
     }
 
@@ -55,6 +56,8 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation(libs.converter.gson)
     implementation(libs.glide)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

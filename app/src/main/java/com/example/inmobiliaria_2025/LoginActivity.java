@@ -1,9 +1,8 @@
 package com.example.inmobiliaria_2025;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,16 +29,28 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
         });
 
-        btIngresar.setOnClickListener(v -> {
-            String email = etMail.getText().toString().trim();
-            String clave = etClave.getText().toString().trim();
+        // Hardcodear email y clave
+        String email = "luisprofessor@gmail.com";
+        String clave = "DEEKQW";
 
-            if (email.isEmpty() || clave.isEmpty()) {
+        // Mostrar en los EditText (opcional)
+        etMail.setText(email);
+        etClave.setText(clave);
+
+        // Llamar al login automáticamente
+        loginViewModel.login(email, clave, this);
+
+        // Mantener el botón por si quieren probar manualmente también
+        btIngresar.setOnClickListener(v -> {
+            String inputEmail = etMail.getText().toString().trim();
+            String inputClave = etClave.getText().toString().trim();
+
+            if(inputEmail.isEmpty() || inputClave.isEmpty()){
                 Toast.makeText(this, "Completá email y contraseña", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            loginViewModel.login(email, clave, this);
+            loginViewModel.login(inputEmail, inputClave, this);
         });
     }
 }
