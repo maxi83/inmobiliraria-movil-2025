@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.inmobiliaria_2025.R;
 import com.example.inmobiliaria_2025.databinding.FragmentInmueblesBinding;
@@ -43,6 +44,10 @@ public class InmueblesFragment extends Fragment {
             binding.rvListaInmueble.setAdapter(adapter);
             binding.rvListaInmueble.setLayoutManager(glm);
         });
+        binding.fabAgregarInmueble.setOnClickListener( v ->
+                NavHostFragment.findNavController(this)
+                        .navigate(R.id.action_nav_inmuebles_to_cargarInmuebleFragment)
+        );
 
         return binding.getRoot();
     }
