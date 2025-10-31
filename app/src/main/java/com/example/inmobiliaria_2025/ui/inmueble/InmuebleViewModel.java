@@ -24,7 +24,7 @@ public class InmuebleViewModel extends AndroidViewModel {
 
     public InmuebleViewModel(@NonNull Application application) {
         super(application);
-        leerInmuebles();//Lo llamo aca directamente, en el contructor
+        //leerInmuebles();//Lo llamo aca directa
     }
 
     public LiveData<String> getmText() {//TODO ESTO HAY QUE PROBARLO!!!

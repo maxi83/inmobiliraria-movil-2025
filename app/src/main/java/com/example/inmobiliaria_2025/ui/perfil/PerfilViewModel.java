@@ -68,6 +68,7 @@ public class PerfilViewModel extends AndroidViewModel {
     }
 
     private void actualizarPropietario(Propietario p) {
+        p.setIdPropietario(propietarioLiveData.getValue().getIdPropietario());
         String token = ApiClient.leerToken(getApplication());
         ApiClient.InmoService service = ApiClient.getInmoService();
         Call<Propietario> call = service.actualizarProp("Bearer " + token, p);

@@ -48,7 +48,7 @@ public class InmueblesFragment extends Fragment {
                 NavHostFragment.findNavController(this)
                         .navigate(R.id.action_nav_inmuebles_to_cargarInmuebleFragment)
         );
-
+        vm.leerInmuebles();
         return binding.getRoot();
     }
 

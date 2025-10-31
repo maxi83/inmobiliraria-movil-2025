@@ -121,7 +121,7 @@ public class CargarInmuebleViewModel extends AndroidViewModel {
 
                 @Override
                 public void onFailure(Call<Inmueble> call, Throwable t) {
-                    Toast.makeText(getApplication(), "Error al cargar inmueble", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "Error en la llamada", Toast.LENGTH_SHORT).show();
                 }
             });
 
