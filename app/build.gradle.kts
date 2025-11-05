@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.legacy.support.v4)
     implementation(libs.activity)
     implementation(libs.retrofit)
+    implementation("com.squareup.picasso:picasso:2.8")
     implementation("androidx.annotation:annotation:1.6.0")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")

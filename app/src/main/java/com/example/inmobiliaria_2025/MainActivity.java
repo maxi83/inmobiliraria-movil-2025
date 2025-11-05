@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_inicio,      // inicio
                 R.id.nav_perfil,      // perfil
-                R.id.nav_inmuebles    // inmuebles
+                R.id.nav_inmuebles,   // inmuebles
+                R.id.nav_inquilinos
         )
                 .setOpenableLayout(drawerLayout)
                 .build();
