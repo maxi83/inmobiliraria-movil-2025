@@ -6,13 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="#F8F9FA"
     tools:context=".ui.inmuebles.CrearInmuebleFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@android:color/white">
 
+        <!-- Título -->
         <TextView
             android:id="@+id/textView5"
             android:layout_width="0dp"
@@ -20,125 +23,155 @@
             android:text="Agregar Inmueble"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-            android:textColor="@color/jp_primary"
+            android:textColor="#E67E22"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Contenedor del formulario -->
         <LinearLayout
             android:id="@+id/form_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:elevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView5">
 
-            <!-- Aplicando el nuevo estilo a cada TextInputLayout -->
+            <!-- Dirección -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/App.TextInputLayout.Primary">
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="#E67E22"
+                app:boxBackgroundColor="@android:color/white"
+                android:hint="Dirección"
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etDireccion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Dirección"
-                    android:inputType="textPostalAddress"
-                    android:textColor="@color/jp_primary" />
+                    android:textColor="#2C3E50"
+                    android:textColorHint="#E67E22"
+                    android:inputType="textPostalAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Uso -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/App.TextInputLayout.Primary">
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="#E67E22"
+                app:boxBackgroundColor="@android:color/white"
+                android:hint="Uso (Ej: Comercial, Residencial)"
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUso"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Uso (Ej: Comercial, Residencial)"
-                    android:inputType="textCapWords"
-                    android:textColor="@color/jp_primary" />
+                    android:textColor="#2C3E50"
+                    android:textColorHint="#E67E22"
+                    android:inputType="textCapWords"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Tipo -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/App.TextInputLayout.Primary">
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="#E67E22"
+                app:boxBackgroundColor="@android:color/white"
+                android:hint="Tipo (Ej: Casa, Departamento)"
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTipo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Tipo (Ej: Casa, Departamento)"
-                    android:inputType="textCapWords"
-                    android:textColor="@color/jp_primary" />
+                    android:textColor="#2C3E50"
+                    android:textColorHint="#E67E22"
+                    android:inputType="textCapWords"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Superficie -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/App.TextInputLayout.Primary">
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="#E67E22"
+                app:boxBackgroundColor="@android:color/white"
+                android:hint="Superficie (m²)"
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etSuperficie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Superficie (m²)"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/jp_primary" />
+                    android:textColor="#2C3E50"
+                    android:textColorHint="#E67E22"
+                    android:inputType="numberDecimal"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Ambientes -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/App.TextInputLayout.Primary">
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="#E67E22"
+                app:boxBackgroundColor="@android:color/white"
+                android:hint="Cantidad de Ambientes"
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etAmbientes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Cantidad de Ambientes"
-                    android:inputType="number"
-                    android:textColor="@color/jp_primary" />
+                    android:textColor="#2C3E50"
+                    android:textColorHint="#E67E22"
+                    android:inputType="number"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Valor -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="#E67E22"
+                app:boxBackgroundColor="@android:color/white"
+                android:hint="Precio"
                 app:prefixText="$"
-                style="@style/App.TextInputLayout.Primary">
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etValor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Precio"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/jp_primary" />
+                    android:textColor="#2C3E50"
+                    android:textColorHint="#E67E22"
+                    android:inputType="numberDecimal"/>
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
+        <!-- Checkbox -->
         <CheckBox
             android:id="@+id/cbDisp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Disponible para alquiler"
-            android:textColor="@color/black"
+            android:textColor="#2C3E50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/form_container" />
 
+        <!-- Imagen -->
         <ImageView
             android:id="@+id/imgView"
             android:layout_width="150dp"
@@ -150,32 +183,34 @@
             app:layout_constraintTop_toBottomOf="@+id/cbDisp"
             tools:src="@tools:sample/backgrounds/scenic" />
 
+        <!-- Botón subir foto -->
         <Button
             android:id="@+id/btnFoto"
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/jp_primary"
+            android:backgroundTint="#E67E22"
             android:text="Subir Foto"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             app:icon="@drawable/ic_menu_camera"
-            app:iconTint="@color/white"
+            app:iconTint="@android:color/white"
             app:layout_constraintBottom_toBottomOf="@id/imgView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgView"
             app:layout_constraintTop_toTopOf="@id/imgView"/>
 
+        <!-- Botón cargar inmueble -->
         <Button
             android:id="@+id/btnCargar"
             style="@style/Widget.Material3.Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@color/blanco_oscuro"
+            android:backgroundTint="#E67E22"
             android:paddingVertical="12dp"
             android:text="Cargar Inmueble"
-            android:textColor="@color/black"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
