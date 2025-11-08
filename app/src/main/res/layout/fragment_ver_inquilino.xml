@@ -13,64 +13,137 @@
         android:background="@android:color/white"
         android:elevation="4dp"
         android:layout_margin="8dp"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center"
-        android:clipToPadding="false"
-        android:dividerPadding="8dp"
-        android:showDividers="middle">
+        android:clipToPadding="false">
 
-        <TextView
-            android:id="@+id/tvCodigo"
+        <!-- Código -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Código"
-            android:textColor="#37474F"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:gravity="center_horizontal"
-            android:padding="8dp"
-            android:background="#E3F2FD"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_gravity="center"/>
+            android:layout_marginBottom="12dp">
 
-        <TextView
-            android:id="@+id/tvNombreCompleto"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Código"
+                android:textColor="#E67E22"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvCodigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="701"
+                android:textColor="#2C3E50"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Nombre Completo -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre Completo"
-            android:textColor="#212121"
-            android:textSize="16sp"
-            android:paddingVertical="10dp"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginBottom="12dp">
 
-        <TextView
-            android:id="@+id/tvDni"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textColor="#E67E22"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvNombreCompleto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Juan Pérez"
+                android:textColor="#2C3E50"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- DNI -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DNI"
-            android:textColor="#212121"
-            android:textSize="16sp"
-            android:paddingVertical="10dp"/>
+            android:layout_marginBottom="12dp">
 
-        <TextView
-            android:id="@+id/tvEmail"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DNI"
+                android:textColor="#E67E22"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvDni"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12345678"
+                android:textColor="#2C3E50"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Email -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
-            android:textColor="#212121"
-            android:textSize="16sp"
-            android:paddingVertical="10dp"/>
+            android:layout_marginBottom="12dp">
 
-        <TextView
-            android:id="@+id/tvTelefono"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="#E67E22"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="juan.perez@mail.com"
+                android:textColor="#2C3E50"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Teléfono -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Teléfono"
-            android:textColor="#212121"
-            android:textSize="16sp"
-            android:paddingVertical="10dp"/>
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono"
+                android:textColor="#E67E22"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+54 9 11 1234 5678"
+                android:textColor="#2C3E50"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

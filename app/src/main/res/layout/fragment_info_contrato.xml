@@ -53,7 +53,9 @@
                     <LinearLayout
                         style="@style/DetailItemLayout.FullWidth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
 
                         <TextView
                             style="@style/DetailLabelStyle"
@@ -66,7 +68,10 @@
                             style="@style/DetailValueStyle.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="701" />
+                            android:text="701"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50"
+                            android:layout_marginTop="4dp"/>
                     </LinearLayout>
 
                     <View
@@ -78,7 +83,9 @@
                     <LinearLayout
                         style="@style/DetailItemLayout.FullWidth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
 
                         <TextView
                             style="@style/DetailLabelStyle"
@@ -91,7 +98,10 @@
                             style="@style/DetailValueStyle.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="05/01/2020" />
+                            android:text="05/01/2020"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50"
+                            android:layout_marginTop="4dp"/>
                     </LinearLayout>
 
                     <View
@@ -103,7 +113,9 @@
                     <LinearLayout
                         style="@style/DetailItemLayout.FullWidth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
 
                         <TextView
                             style="@style/DetailLabelStyle"
@@ -116,7 +128,10 @@
                             style="@style/DetailValueStyle.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="05/01/2021" />
+                            android:text="05/01/2021"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50"
+                            android:layout_marginTop="4dp"/>
                     </LinearLayout>
 
                     <View
@@ -128,7 +143,9 @@
                     <LinearLayout
                         style="@style/DetailItemLayout.FullWidth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
 
                         <TextView
                             style="@style/DetailLabelStyle"
@@ -142,7 +159,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$17000.0"
-                            android:textColor="#E67E22" />
+                            android:textStyle="bold"
+                            android:textColor="#E67E22"
+                            android:layout_marginTop="4dp"/>
                     </LinearLayout>
 
                     <View
@@ -154,7 +173,9 @@
                     <LinearLayout
                         style="@style/DetailItemLayout.FullWidth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
 
                         <TextView
                             style="@style/DetailLabelStyle"
@@ -168,7 +189,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mario Luna"
-                            android:textColor="#E67E22" />
+                            android:textColor="#E67E22"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp"/>
                     </LinearLayout>
 
                     <View
@@ -180,7 +203,9 @@
                     <LinearLayout
                         style="@style/DetailItemLayout.FullWidth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="8dp">
 
                         <TextView
                             style="@style/DetailLabelStyle"
@@ -193,7 +218,10 @@
                             style="@style/DetailValueStyle.Bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Inmueble en Salta 325" />
+                            android:text="Inmueble en Salta 325"
+                            android:textStyle="bold"
+                            android:textColor="#2C3E50"
+                            android:layout_marginTop="4dp"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -201,7 +229,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Contenedor del botón inferior -->
     <!-- Contenedor del botón inferior -->
     <LinearLayout
         android:id="@+id/btn_pagos_container"
@@ -249,6 +276,5 @@
             android:elevation="3dp"
             android:layout_marginStart="8dp" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
