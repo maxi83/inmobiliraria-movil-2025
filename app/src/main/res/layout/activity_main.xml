@@ -17,13 +17,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/verde_toolbar"
             android:titleTextColor="@android:color/white"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <!-- NavHostFragment -->
-        <fragment
-            android:id="@+id/nav_host_fragment"
+        <!-- NavHostFragment reemplazado por FragmentContainerView -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment_content_main"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -48,6 +48,5 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

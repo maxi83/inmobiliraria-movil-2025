@@ -3,24 +3,43 @@ package com.example.inmobiliaria_2025.model;
 import java.io.Serializable;
 
 public class Inmueble implements Serializable {
-
     private int idInmueble;
     private String direccion;
+
+
+    private double valor;
+    private Propietario duenio;
+    private int idPropietario;
     private String uso;
     private String tipo;
     private int ambientes;
-    private double superficie;
+
+    private int superficie;
     private double latitud;
     private double longitud;
-    private double valor;
+
     private String imagen;
     private boolean disponible;
-    private int idPropietario;
-    private Propietario duenio;
-    private boolean tieneContratoVigente;
 
-    public Inmueble() {
+
+    public Inmueble() {}
+
+    public Inmueble(int idInmueble, String direccion, double valor, Propietario duenio, int idPropietario, String uso, String tipo, int ambientes, int superficie, double latitud, double longitud, String imagen, boolean disponible) {
+        this.idInmueble = idInmueble;
+        this.direccion = direccion;
+        this.valor = valor;
+        this.duenio = duenio;
+        this.idPropietario = idPropietario;
+        this.uso = uso;
+        this.tipo = tipo;
+        this.ambientes = ambientes;
+        this.superficie = superficie;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.imagen = imagen;
+        this.disponible = disponible;
     }
+
 
     public int getIdInmueble() {
         return idInmueble;
@@ -36,6 +55,30 @@ public class Inmueble implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public Propietario getDuenio() {
+        return duenio;
+    }
+
+    public void setDuenio(Propietario duenio) {
+        this.duenio = duenio;
+    }
+
+    public int getIdPropietario() {
+        return idPropietario;
+    }
+
+    public void setIdPropietario(int idPropietario) {
+        this.idPropietario = idPropietario;
     }
 
     public String getUso() {
@@ -62,11 +105,11 @@ public class Inmueble implements Serializable {
         this.ambientes = ambientes;
     }
 
-    public double getSuperficie() {
+    public int getSuperficie() {
         return superficie;
     }
 
-    public void setSuperficie(double superficie) {
+    public void setSuperficie(int superficie) {
         this.superficie = superficie;
     }
 
@@ -86,14 +129,6 @@ public class Inmueble implements Serializable {
         this.longitud = longitud;
     }
 
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
     public String getImagen() {
         return imagen;
     }
@@ -108,29 +143,5 @@ public class Inmueble implements Serializable {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
-    }
-
-    public int getIdPropietario() {
-        return idPropietario;
-    }
-
-    public void setIdPropietario(int idPropietario) {
-        this.idPropietario = idPropietario;
-    }
-
-    public Propietario getDuenio() {
-        return duenio;
-    }
-
-    public void setDuenio(Propietario duenio) {
-        this.duenio = duenio;
-    }
-
-    public boolean isTieneContratoVigente() {
-        return tieneContratoVigente;
-    }
-
-    public void setTieneContratoVigente(boolean tieneContratoVigente) {
-        this.tieneContratoVigente = tieneContratoVigente;
     }
 }

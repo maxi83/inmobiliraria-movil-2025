@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    tools:context=".ui.contratos.InfoContratoFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_pagos_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/tv_toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Información del Contrato"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#34495E"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Card principal -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_contract_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Código de contrato -->
+                    <LinearLayout
+                        style="@style/DetailItemLayout.FullWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Código contrato" />
+
+                        <TextView
+                            android:id="@+id/tv_codigo_contrato"
+                            style="@style/DetailValueStyle.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="701" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+
+                    <!-- Fecha inicio -->
+                    <LinearLayout
+                        style="@style/DetailItemLayout.FullWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fecha inicio" />
+
+                        <TextView
+                            android:id="@+id/tv_fecha_inicio"
+                            style="@style/DetailValueStyle.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="05/01/2020" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+
+                    <!-- Fecha finalización -->
+                    <LinearLayout
+                        style="@style/DetailItemLayout.FullWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fecha finalización" />
+
+                        <TextView
+                            android:id="@+id/tv_fecha_fin"
+                            style="@style/DetailValueStyle.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="05/01/2021" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+
+                    <!-- Monto -->
+                    <LinearLayout
+                        style="@style/DetailItemLayout.FullWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monto de alquiler" />
+
+                        <TextView
+                            android:id="@+id/tv_monto"
+                            style="@style/DetailValueStyle.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$17000.0"
+                            android:textColor="#E67E22" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+
+                    <!-- Inquilino -->
+                    <LinearLayout
+                        style="@style/DetailItemLayout.FullWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inquilino" />
+
+                        <TextView
+                            android:id="@+id/tv_inquilino"
+                            style="@style/DetailValueStyle.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mario Luna"
+                            android:textColor="#E67E22" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+
+                    <!-- Inmueble -->
+                    <LinearLayout
+                        style="@style/DetailItemLayout.FullWidth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/DetailLabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inmueble" />
+
+                        <TextView
+                            android:id="@+id/tv_inmueble"
+                            style="@style/DetailValueStyle.Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inmueble en Salta 325" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Contenedor del botón inferior -->
+    <!-- Contenedor del botón inferior -->
+    <LinearLayout
+        android:id="@+id/btn_pagos_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@android:color/transparent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_pagos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PAGOS"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingVertical="12dp"
+            app:cornerRadius="12dp"
+            android:backgroundTint="#E67E22"
+            android:textColor="@android:color/white"
+            app:iconTint="@android:color/white"
+            app:iconPadding="8dp"
+            android:elevation="3dp"
+            android:layout_marginEnd="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_inquilino"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="INQUILINO"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingVertical="12dp"
+            app:cornerRadius="12dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            app:iconTint="@android:color/white"
+            app:iconPadding="8dp"
+            android:elevation="3dp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

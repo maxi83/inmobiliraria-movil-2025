@@ -1,29 +1,27 @@
 package com.example.inmobiliaria_2025.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+
+import java.time.LocalDate;
 
 public class Pago implements Serializable {
-
     private int idPago;
-    private int nroPago;
-    private Contrato contrato;
+    private String detalle;
+    private String fechaPago;
     private int idContrato;
     private double monto;
-    private String fechaPago;
-    private String detalle;
-    private boolean estado;
+    private Alquiler alquiler;
 
-    public Pago() {
-    }
+    public Pago() {}
 
-    public Pago(int idPago, int nroPago, double monto, String fechaPago, int idContrato, String detalle, boolean estado) {
+    public Pago(int idPago, String detalle, String fechaPago, int idContrato, double monto, Alquiler alquiler) {
         this.idPago = idPago;
-        this.nroPago = nroPago;
-        this.monto = monto;
+        this.detalle = detalle;
         this.fechaPago = fechaPago;
         this.idContrato = idContrato;
-        this.detalle = detalle;
-        this.estado = estado;
+        this.monto = monto;
+        this.alquiler = alquiler;
     }
 
     public int getIdPago() {
@@ -34,20 +32,20 @@ public class Pago implements Serializable {
         this.idPago = idPago;
     }
 
-    public int getNroPago() {
-        return nroPago;
+    public String getDetalle() {
+        return detalle;
     }
 
-    public void setNroPago(int nroPago) {
-        this.nroPago = nroPago;
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
-    public Contrato getContrato() {
-        return contrato;
+    public String getFechaPago() {
+        return fechaPago;
     }
 
-    public void setContrato(Contrato contrato) {
-        this.contrato = contrato;
+    public void setFechaPago(String fechaPago) {
+        this.fechaPago = fechaPago;
     }
 
     public int getIdContrato() {
@@ -66,38 +64,11 @@ public class Pago implements Serializable {
         this.monto = monto;
     }
 
-    public String getFechaPago() {
-        return fechaPago;
+    public Alquiler getAlquiler() {
+        return alquiler;
     }
 
-    public void setFechaPago(String fechaPago) {
-        this.fechaPago = fechaPago;
-    }
-
-    public String getDetalle() {
-        return detalle;
-    }
-
-    public void setDetalle(String detalle) {
-        this.detalle = detalle;
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
-    // Método para mostrar la fecha en formato dd/MM/yyyy
-    public String fechaPagoFormateada() {
-        if (fechaPago != null && fechaPago.length() >= 10) {
-            String año = fechaPago.substring(0, 4);
-            String mes = fechaPago.substring(5, 7);
-            String dia = fechaPago.substring(8, 10);
-            return dia + "/" + mes + "/" + año;
-        }
-        return fechaPago;
+    public void setAlquiler(Alquiler alquiler) {
+        this.alquiler = alquiler;
     }
 }

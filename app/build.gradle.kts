@@ -25,24 +25,19 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
-    android {
-        buildFeatures {
-            viewBinding= true
-            dataBinding = true
-        }
-    }
-
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
@@ -56,6 +51,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation(libs.converter.gson)
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0") // ✅ Scalars agregado
     implementation(libs.glide)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)

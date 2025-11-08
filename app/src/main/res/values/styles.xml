@@ -1,0 +1,77 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/jp_primary</item>
+        <item name="colorPrimaryVariant">@color/jp_accent</item>
+        <item name="colorSecondary">@color/jp_secondary</item>
+        <item name="android:windowBackground">@color/jp_background</item>
+        <item name="android:textColor">@color/jp_text</item>
+        <item name="android:statusBarColor">@color/jp_primary</item>
+        <item name="android:navigationBarColor">@color/jp_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="App.TextInputLayout.Primary" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/jp_primary</item>
+        <item name="hintTextColor">@color/jp_text</item>
+        <item name="android:textColorHint">@color/jp_text</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+    </style>
+
+    <style name="ButtonPrimary" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/jp_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="ButtonSecondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:backgroundTint">@color/jp_secondary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="DetailLabelStyle">
+        <item name="android:textColor">@color/jp_secondary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DetailValueStyle">
+        <item name="android:textColor">@color/jp_text</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DetailValueStyle.Bold" parent="DetailValueStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="DividerStyle">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/jp_accent</item>
+    </style>
+    <style name="DetailItemLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@android:color/white</item>
+
+    </style>
+
+    <style name="DetailItemLayout.FullWidth">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@android:color/white</item>
+
+    </style>
+    <style name="Theme.Inmobiliaria2025.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+    <style name="Theme.Inmobiliaria2025.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+</resources>

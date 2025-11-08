@@ -1,18 +1,23 @@
 package com.example.inmobiliaria_2025;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etMail, etClave;
     private Button btIngresar;
-    private LoginActivityViewModel loginViewModel;
+    private LoginActivityViewModel mv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +28,9 @@ public class LoginActivity extends AppCompatActivity {
         etClave = findViewById(R.id.etClave);
         btIngresar = findViewById(R.id.btIngresar);
 
-        loginViewModel = new ViewModelProvider(this).get(LoginActivityViewModel.class);
+        mv = new ViewModelProvider(this).get(LoginActivityViewModel.class);
 
-        loginViewModel.getMensaje().observe(this, mensaje -> {
+        mv.getMensaje().observe(this, mensaje -> {
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
         });
 
@@ -38,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         etClave.setText(clave);
 
         // Llamar al login automáticamente
-        loginViewModel.login(email, clave, this);
+        mv.login(email, clave, this);
 
         // Mantener el botón por si quieren probar manualmente también
         btIngresar.setOnClickListener(v -> {
@@ -50,7 +55,31 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            loginViewModel.login(inputEmail, inputClave, this);
+            mv.login(inputEmail, inputClave, this);
         });
+        // Solicitar permiso en tiempo de ejecución
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 101);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mv.iniciarDeteccionDeSacudida(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // Detiene la detección para no consumir batería cuando no está visible
+        mv.detenerDeteccionDeSacudida();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }

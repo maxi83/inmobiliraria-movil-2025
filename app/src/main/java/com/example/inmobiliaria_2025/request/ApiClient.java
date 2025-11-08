@@ -3,7 +3,7 @@ package com.example.inmobiliaria_2025.request;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.inmobiliaria_2025.model.Contrato;
+import com.example.inmobiliaria_2025.model.Alquiler;
 import com.example.inmobiliaria_2025.model.Inmueble;
 import com.example.inmobiliaria_2025.model.Pago;
 import com.example.inmobiliaria_2025.model.Propietario;
@@ -17,6 +17,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -29,55 +30,28 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public class ApiClient {
-    public final static String BASE_URL = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/";
+    public static final String BASE_URL = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/"; //mi api o api de prueba
 
-    public static InmoService getInmoService() {
-        Gson gson = new GsonBuilder().setLenient().create();
+
+
+
+    public static InmobiliariaService getInmobiliariaService() {
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .setDateFormat("yyyy-MM-dd")
+                .create();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-        return retrofit.create(InmoService.class);
+        return retrofit.create(InmobiliariaService.class);
+
     }
 
-    public interface InmoService {
 
-        @FormUrlEncoded
-        @POST("api/Propietarios/login")
-        Call<String> loginForm(@Field("Usuario") String usuario, @Field("Clave") String clave);
 
-        @GET("api/Propietarios")
-        Call<Propietario> getPropietario(@Header("Authorization") String token);
-
-        @PUT("api/Propietarios/actualizar")
-        Call<Propietario> actualizarProp(@Header("Authorization") String token, @Body Propietario p);
-
-        @GET("api/Inmuebles")
-        Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
-
-        @PUT("api/Inmuebles/actualizar")
-        Call<Inmueble> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
-
-        @Multipart
-        @POST("api/Inmuebles/cargar")
-        Call<Inmueble> CargarInmueble(@Header("Authorization") String token,
-                                      @Part MultipartBody.Part imagen,
-                                      @Part("inmueble") RequestBody inmuebleBody);
-
-        @GET("api/Contratos")
-        Call<List<Contrato>> obtenerContratos(@Header("Authorization") String token);
-
-        // ✅ Nuevo endpoint agregado sin borrar nada:
-        @GET("api/Inmuebles/GetContratoVigente")
-        Call<List<Inmueble>> obtenerInmueblesConContratoVigente(@Header("Authorization") String token);
-        @GET("api/Contratos/inmueble/{id}")
-        Call<Contrato> obtenerContratoPorInmuebleId(
-                @Header("Authorization") String token,
-                @Path("id") int idInmueble
-        );
-        @GET("api/Pagos/contrato/{id}") Call<List<Pago>> obtenerPagosPorContrato(@Header("Authorization") String token, @Path("id") int idContrato );
-    }
-
+    //guardar y leer token metodos crear
     public static void guardarToken(Context context, String token) {
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -88,5 +62,47 @@ public class ApiClient {
     public static String leerToken(Context context) {
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);
         return sp.getString("token", null);
+    }
+
+    public interface InmobiliariaService {
+        //metodos de get , post etc
+        @FormUrlEncoded
+        @POST("api/Propietarios/login")
+        Call<String> login(@Field("Usuario") String email, @Field("Clave") String clave);
+
+        @GET("api/Propietarios")
+        Call<Propietario> obtenerPerfil(@Header("Authorization") String token);
+
+        @PUT("api/Propietarios/actualizar")
+        Call<Propietario> actualizarPerfil(@Header("Authorization") String token, @Body Propietario propietario);
+
+        @GET("api/Inmuebles")
+        Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
+
+        @PUT("api/Inmuebles/actualizar")
+        Call<Inmueble> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
+
+
+
+        @Multipart
+        @POST("api/Inmuebles/cargar")
+        Call<Inmueble> crearInmueble(@Header("Authorization") String token, @Part MultipartBody.Part imagen, @Part ("inmueble")RequestBody inmueble);
+
+        @PUT("api/Propietarios/changePassword")
+        @FormUrlEncoded // para enviar datos como un formulario
+        Call<Propietario> cambiarPassword(
+                @Header("Authorization") String token,
+                @Field("currentPassword") String passwordActual,
+                @Field("newPassword") String passwordNueva
+        );
+
+        @GET("api/Inmuebles/GetContratoVigente")
+        Call<List<Inmueble>> obtenerContratoVigente(@Header("Authorization") String token);
+
+        @GET("api/contratos/inmueble/{id}")
+        Call<Alquiler> contratoPorInmueble (@Header("Authorization") String token, @Path("id") int id);
+
+        @GET("api/pagos/contrato/{id}")
+        Call<List<Pago>> pagosPorContrato (@Header("Authorization") String token, @Path("id") int id);
     }
 }

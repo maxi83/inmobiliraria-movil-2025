@@ -29,98 +29,113 @@
     <!-- Inmuebles -->
     <fragment
         android:id="@+id/nav_inmuebles"
-        android:name="com.example.inmobiliaria_2025.ui.inmueble.InmueblesFragment"
+        android:name="com.example.inmobiliaria_2025.ui.inmuebles.InmueblesFragment"
         android:label="Inmuebles"
         tools:layout="@layout/fragment_inmuebles">
         <action
-            android:id="@+id/action_nav_inmuebles_to_detalleInmuebleFragment"
-            app:destination="@id/detalleInmuebleFragment" />
+            android:id="@+id/action_nav_inmuebles_to_infoInmuebleFragment"
+            app:destination="@id/infoInmuebleFragment" />
         <action
-            android:id="@+id/action_nav_inmuebles_to_cargarInmuebleFragment"
-            app:destination="@id/cargarInmuebleFragment" />
+            android:id="@+id/action_nav_inmuebles_to_crearInmuebleFragment"
+            app:destination="@id/crearInmuebleFragment" />
     </fragment>
 
-    <!-- Cargar Inmueble -->
     <fragment
-        android:id="@+id/cargarInmuebleFragment"
-        android:name="com.example.inmobiliaria_2025.ui.inmueble.CargarInmuebleFragment"
-        android:label="Cargar Inmueble"
-        tools:layout="@layout/fragment_cargar_inmueble" />
-
-    <!-- Detalle Inmueble -->
-    <fragment
-        android:id="@+id/detalleInmuebleFragment"
-        android:name="com.example.inmobiliaria_2025.ui.inmueble.DetalleInmuebleFragment"
+        android:id="@+id/infoInmuebleFragment"
+        android:name="com.example.inmobiliaria_2025.ui.inmuebles.InfoInmuebleFragment"
         android:label="Detalle Inmueble"
-        tools:layout="@layout/fragment_detalle_inmueble">
+        tools:layout="@layout/fragment_info_inmueble">
         <action
-            android:id="@+id/action_detalleInmuebleFragment_to_nav_inmuebles"
+            android:id="@+id/action_infoInmuebleFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/crearInmuebleFragment"
+        android:name="com.example.inmobiliaria_2025.ui.inmuebles.CrearInmuebleFragment"
+        android:label="Crear Inmueble"
+        tools:layout="@layout/fragment_crear_inmueble">
+        <action
+            android:id="@+id/action_crearInmuebleFragment_to_nav_inmuebles"
             app:destination="@id/nav_inmuebles" />
     </fragment>
 
     <!-- Inquilinos -->
     <fragment
         android:id="@+id/nav_inquilinos"
-        android:name="com.example.inmobiliaria_2025.ui.inquilino.InquilinoFragment"
+        android:name="com.example.inmobiliaria_2025.ui.inquilinos.InquilinosFragment"
         android:label="Inquilinos"
         tools:layout="@layout/fragment_inquilinos">
         <action
-            android:id="@+id/action_nav_inquilinos_to_detalleInquilinoFragment"
-            app:destination="@id/detalleInquilinoFragment" />
-        <action
-            android:id="@+id/action_nav_inquilinos_to_detalleInmuebleFragment"
-            app:destination="@id/detalleInmuebleFragment"/>
+            android:id="@+id/action_nav_inquilinos_to_verInquilinoFragment"
+            app:destination="@id/verInquilinoFragment" />
     </fragment>
 
-    <!-- Detalle Inquilino -->
     <fragment
-        android:id="@+id/detalleInquilinoFragment"
-        android:name="com.example.inmobiliaria_2025.ui.inquilino.DetalleInquilinoFragment"
-        android:label="Detalle Inquilino"
-        tools:layout="@layout/fragment_detalle_inquilino" />
+        android:id="@+id/verInquilinoFragment"
+        android:name="com.example.inmobiliaria_2025.ui.inquilinos.VerInquilinoFragment"
+        android:label="Información"
+        tools:layout="@layout/fragment_ver_inquilino">
+        <action
+            android:id="@+id/action_verInquilinoFragment_to_nav_inquilinos"
+            app:destination="@id/nav_inquilinos" />
+        <action
+            android:id="@+id/action_verInquilinoFragment_to_infoContratoFragment"
+            app:destination="@id/infoContratoFragment" />
+    </fragment>
 
     <!-- Contratos -->
     <fragment
         android:id="@+id/nav_contratos"
-        android:name="com.example.inmobiliaria_2025.ui.contrato.ContratoFragment"
+        android:name="com.example.inmobiliaria_2025.ui.contratos.ContratosFragment"
         android:label="Contratos"
         tools:layout="@layout/fragment_contratos">
-        <!-- Acción que faltaba -->
         <action
-            android:id="@+id/action_nav_contratos_to_detalleContratoFragment"
-            app:destination="@id/detalleContratoFragment" />
+            android:id="@+id/action_nav_contratos_to_infoContratoFragment"
+            app:destination="@id/infoContratoFragment" />
     </fragment>
 
-    <!-- Detalle Contrato -->
     <fragment
-        android:id="@+id/detalleContratoFragment"
-        android:name="com.example.inmobiliaria_2025.ui.contrato.DetalleContratoFragment"
-        android:label="Detalle Contrato"
-        tools:layout="@layout/fragment_detalle_contrato">
-        <argument
-            android:name="contrato"
-            app:argType="com.example.inmobiliaria_2025.model.Contrato"
-            android:defaultValue="@null" />
+        android:id="@+id/infoContratoFragment"
+        android:name="com.example.inmobiliaria_2025.ui.contratos.InfoContratoFragment"
+        android:label="Información Contrato"
+        tools:layout="@layout/fragment_info_contrato">
         <action
-            android:id="@+id/action_detalleContratoFragment_to_detalleInquilinoFragment"
-            app:destination="@id/detalleInquilinoFragment" />
+            android:id="@+id/action_infoContratoFragment_to_detallePagosFragment"
+            app:destination="@id/detallePagosFragment" />
         <action
-            android:id="@+id/action_detalleContratoFragment_to_pagosFragment"
-            app:destination="@id/pagosFragment" />
+            android:id="@+id/action_infoContratoFragment_to_nav_contratos"
+            app:destination="@id/nav_contratos" />
+        <action
+            android:id="@+id/action_infoContratoFragment_to_verInquilinoFragment"
+            app:destination="@id/verInquilinoFragment" />
     </fragment>
 
-    <!-- Pagos -->
     <fragment
-        android:id="@+id/pagosFragment"
-        android:name="com.example.inmobiliaria_2025.ui.pagos.PagosFragment"
+        android:id="@+id/detallePagosFragment"
+        android:name="com.example.inmobiliaria_2025.ui.contratos.DetallePagosFragment"
         android:label="Pagos"
-        tools:layout="@layout/fragment_pagos" />
+        tools:layout="@layout/fragment_detalle_pagos">
+        <action
+            android:id="@+id/action_detallePagosFragment_to_infoContratoFragment"
+            app:destination="@id/infoContratoFragment" />
+    </fragment>
 
-    <!-- Logout -->
+    <!-- Login -->
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.inmobiliaria_2025.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_nav_login_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+    </fragment>
+
+    <!-- Salir -->
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.example.inmobiliaria_2025.ui.logout.LogoutFragment"
-        android:label="Logout"
-        tools:layout="@layout/fragment_logout" />
+        android:name="com.example.inmobiliaria_2025.ui.Salir.SalirFragment"
+        android:label="Salir" />
 
 </navigation>

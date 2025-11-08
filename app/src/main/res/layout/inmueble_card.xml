@@ -16,7 +16,7 @@
 
         <!-- Imagen del inmueble -->
         <ImageView
-            android:id="@+id/imgInmueble"
+            android:id="@+id/iv_foto_inmueble"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:contentDescription="Imagen del inmueble"
@@ -24,7 +24,7 @@
 
         <!-- Dirección -->
         <TextView
-            android:id="@+id/tvDireccion"
+            android:id="@+id/tv_direccion_inmueble"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="6dp"
@@ -33,24 +33,15 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Tipo de inmueble -->
-        <TextView
-            android:id="@+id/tvTipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="2dp"
-            android:text="Tipo"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
-
         <!-- Precio -->
         <TextView
-            android:id="@+id/tvPrecio"
+            android:id="@+id/tvDireccionContrato"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="2dp"
             android:text="$123000"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="14sp" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -16,18 +16,13 @@
         android:icon="@drawable/ic_menu_slideshow" />
 
     <item
-        android:id="@+id/nav_inquilinos"
-        android:title="Inquilinos"
-        android:icon="@drawable/ic_menu_slideshow" />
-
-    <item
         android:id="@+id/nav_contratos"
         android:title="Contratos"
         android:icon="@drawable/ic_menu_slideshow" />
 
     <item
         android:id="@+id/nav_logout"
-        android:title="Logout"
+        android:title="Salir"
         android:icon="@drawable/ic_menu_slideshow" />
 
 </menu>

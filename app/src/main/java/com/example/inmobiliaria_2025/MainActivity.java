@@ -37,28 +37,35 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // NavController
-        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.nav_host_fragment);
+        NavHostFragment navHostFragment = (NavHostFragment)
+                getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
         navController = navHostFragment.getNavController();
 
-        // AppBarConfiguration con los IDs correctos según tu mobile_navigation.xml
+        // AppBarConfiguration
         appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_inicio,      // inicio
-                R.id.nav_perfil,      // perfil
-                R.id.nav_inmuebles,   // inmuebles
-                R.id.nav_inquilinos
+                R.id.nav_inicio,
+                R.id.nav_perfil,
+                R.id.nav_inmuebles,
+                R.id.nav_contratos,
+                R.id.nav_logout // "Salir"
         )
                 .setOpenableLayout(drawerLayout)
                 .build();
 
-        // Setup Toolbar con NavController
+        // Toolbar con NavController
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        // Setup BottomNavigationView con NavController
+        // BottomNavigationView con NavController
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        // Setup NavigationView (Drawer) con NavController
-        NavigationUI.setupWithNavController(navigationView, navController);
+        // NavigationView (Drawer) con NavController y cierre automático
+        navigationView.setNavigationItemSelectedListener(item -> {
+            boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
+            if (handled) {
+                drawerLayout.closeDrawers(); // cierra el drawer
+            }
+            return handled;
+        });
     }
 
     @Override

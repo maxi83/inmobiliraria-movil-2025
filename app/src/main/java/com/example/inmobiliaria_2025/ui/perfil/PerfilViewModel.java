@@ -36,8 +36,9 @@ public class PerfilViewModel extends AndroidViewModel {
 
     public void obtenerPropietario() {
         String token = ApiClient.leerToken(getApplication());
-        ApiClient.InmoService service = ApiClient.getInmoService();
-        Call<Propietario> call = service.getPropietario("Bearer " + token);
+        ApiClient.InmobiliariaService service = ApiClient.getInmobiliariaService();
+        Call<Propietario> call = service.obtenerPerfil("Bearer " + token);
+
         call.enqueue(new Callback<Propietario>() {
             @Override
             public void onResponse(Call<Propietario> call, Response<Propietario> response) {
@@ -70,8 +71,8 @@ public class PerfilViewModel extends AndroidViewModel {
     private void actualizarPropietario(Propietario p) {
         p.setIdPropietario(propietarioLiveData.getValue().getIdPropietario());
         String token = ApiClient.leerToken(getApplication());
-        ApiClient.InmoService service = ApiClient.getInmoService();
-        Call<Propietario> call = service.actualizarProp("Bearer " + token, p);
+        ApiClient.InmobiliariaService service = ApiClient.getInmobiliariaService();
+        Call<Propietario> call = service.actualizarPerfil("Bearer " + token, p);
         call.enqueue(new Callback<Propietario>() {
             @Override
             public void onResponse(Call<Propietario> call, Response<Propietario> response) {
